@@ -2,7 +2,7 @@ import sys, os
 from ConfigParser import SafeConfigParser
 
 from modbot_site import app
-from flaskext.sqlalchemy import SQLAlchemy
+from flask.ext.sqlalchemy import SQLAlchemy
 
 
 cfg_file = SafeConfigParser()

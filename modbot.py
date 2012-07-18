@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import re
 import logging, logging.config
 import urllib2
