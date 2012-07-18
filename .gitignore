@@ -1,0 +1,5 @@
+*.pyc
+*.wsgi
+*.log
+*.swp
+modbot.cfg
