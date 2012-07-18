@@ -611,6 +611,7 @@ def main():
     start_time = time()
 
     global r
+    mod_subreddit = None
     try:
         r = praw.Reddit(user_agent=cfg_file.get('reddit', 'user_agent'))
         logging.info('Logging in as %s', cfg_file.get('reddit', 'username'))
@@ -629,7 +630,12 @@ def main():
         mod_subreddit = r.get_subreddit(mod_multi)
     except Exception as e:
         logging.error('  ERROR: %s', e)
-
+    
+    # check if we got a subreddit to use
+    if mod_subreddit == None:
+        logging.error('AutoModerator has no subreddits to run on')
+        return
+    
     # check reports
     items = mod_subreddit.get_reports(limit=1000)
     stop_time = datetime.utcnow() - REPORT_BACKLOG_LIMIT
